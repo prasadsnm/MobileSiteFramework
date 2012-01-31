@@ -1,0 +1,80 @@
+.x-anchor {
+width:1.631em;
+height:.7em;
+position:absolute;
+z-index:1;
+-webkit-mask:0 0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAPCAYAAABut3YUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAPZJREFUeNpi/PX7LwOFwAyIG6HseiA+Ra5BjBQ6xg+IVwAxJ5T/HYgjgHgTOYYxUeCQUiBeh+QQBih7HVSOLiHDDMSTgTiTgLrpQJwLxH9p5RhOaLT4EakeFF3RQPyF2o6RhkaBGYkheRmIPYH4KbXSjC4QnyTDIch6danhGCcgPgwNGXKBNNQMb0ocEwXE24GYn4FyADJjI76Ej88x7UC8FIjZGKgHQDlxGtRsZmISMMjy+dBQoSXYBC0gv+NyDD80xzgx0AeAqg4fIH6NHk0qQHyMjg6B1WvHYDkNFjIgwS1ALMowMOAjEAeBHINe2Q0U+AUQYACQ10C2QNhRogAAAABJRU5ErkJggg==) no-repeat;
+-webkit-mask-size:1.631em .7em;
+overflow:hidden;
+background-color:#081017;
+}
+
+.x-item-selected {
+	color:#FFF!important;
+}
+
+/*overriding all of Sencha Touch's gradient code*/
+.x-list .x-list-item.x-item-selected {
+	background-color:#FFF;
+	background-image: -webkit-gradient(linear, 100% 100%, 100% 100%, color-stop(0%, #FFF), color-stop(0%, #FFF), color-stop(100%, #FFF));
+	background-image:linear-gradient(#FFF,#FFF,#FFF);
+	color:#444;
+	text-shadow:rgba(255,255,255,0.00) 0 .00em 0;
+	border-top-color:#FFF;
+	border-bottom-color:#FFF;
+}
+
+.listItem {
+	border:none;
+}
+
+.listItem .x-list-item-body {
+	display: -webkit-box;
+	display:box;
+	-webkit-box-orient:horizontal;
+	box-orient:horizontal;
+	overflow:hidden;
+}
+
+.listItem img {
+	width:60px;
+	height:60px;
+	background-color:#fff;
+	padding:2px;
+}
+
+.listItem .tweet-content {
+	color:#444;
+	padding:15px;
+}
+
+.listItem .tweet-content a {
+	color:#2578C1;
+}
+
+.listItem .tweet-content h2 {
+	font-weight:700;
+	color:#111;
+}
+
+.listItem .x-tweetanchor {
+	width:14px;
+	height:14px;
+	background-color:#eee;
+	top:20px;
+	left:82px;
+	position:absolute;
+	-webkit-transform:rotate(45deg);
+}
+
+.listItem .tweet-bubble {
+	position:relative;
+	min-height:100px;
+	margin-left:15px;
+	overflow:hidden;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	background:#eee;
+	-webkit-box-flex:1;
+	box-flex:1;
+}

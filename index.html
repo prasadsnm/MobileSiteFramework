@@ -1,0 +1,396 @@
+<!DOCTYPE html> 
+<html> 
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile: Scrollview Demos and Tests</title>
+	<link rel="stylesheet" href="./stylesheets/jquery.mobile-1.0.css" />
+	<link rel="stylesheet" href="./stylesheets/jquery.mobile.scrollview.css">
+	<link rel="stylesheet" href="./stylesheets/jqm-docs.css">
+	<link rel="stylesheet" href="./stylesheets/gprc.min.css">
+	<link rel="stylesheet" href="./stylesheets/twitter.css">
+    <style>
+		.ui-content.ui-scrollview-clip {
+			padding: 0;
+		}
+		.ui-content.ui-scrollview-clip > div.ui-scrollview-view {
+			margin: 0;
+			padding: 15px;
+		}
+		.ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
+			margin: 0;
+		}
+
+		.nav-custom .ui-btn .ui-btn-inner { 
+			padding-top: 40px !important; 
+		}
+		.nav-custom .ui-btn .ui-icon { 
+			width: 30px!important; 
+			height: 30px!important; 
+			margin-left: -15px !important; 
+			box-shadow: none!important; 
+			-moz-box-shadow: none!important; 
+			-webkit-box-shadow: none!important; 
+			-webkit-border-radius: none !important; 
+			border-radius: none !important; 
+		}
+		#moodle .ui-icon{
+			background: url(./stylesheets/images/gradhat.png) 50% 50% no-repeat;
+			background-size: 30px 23px;
+		}
+		#neos .ui-icon{
+			background: url(./stylesheets/images/book.png) 50% 50% no-repeat;
+			background-size: 18px 26px;
+		}
+		#twitter .ui-icon{
+			background: url(./stylesheets/images/bird.png) 50% 50% no-repeat;
+			background-size: 25px 24px;
+		}
+		#chat .ui-icon{
+			background: url(./stylesheets/images/chat.png) 50% 50% no-repeat;
+			background-size: 24px 22px;
+		}
+		#about .ui-icon{
+			background: url(./stylesheets/images/persondot.png) 50% 50% no-repeat;
+			background-size: 24px 26px;
+		}
+
+		#news .ui-icon{
+			background: url(./stylesheets/images/newspaper.png) 50% 50% no-repeat;
+			background-size: 28px 23px;
+		}
+		#contact .ui-icon{
+			background: url(./stylesheets/images/idcard.png) 50% 50% no-repeat;
+			background-size: 24px 17px;
+		}
+		#resources .ui-icon{
+			background: url(./stylesheets/images/notepad.png) 50% 50% no-repeat;
+			background-size: 22px 28px;
+		}
+		
+	</style>
+	<script src="./javascript/jquery-1.7.1.js"></script>
+	<script src="./javascript/jquery.mobile-1.0.js"></script>
+	<!--<script src="./javascript/jquery.mobile.iscroll.js"></script> -->
+<!--	<script src="./javascript/jquery.easing.1.3.js"></script>
+	<script src="./javascript/jquery.mobile.scrollview.js"></script>
+	<script src="./javascript/scrollview.js"></script> -->
+	<script src="./javascript/jqm-docs.js"></script>
+	<script src="./javascript/twitter.js"></script>
+	<script src="./javascript/jquery.linkify.1.0.0.min.js"></script>
+	<script>
+		$.mobile.fixedToolbars
+   		.setTouchToggleEnabled(false);
+	</script>
+
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> 
+	<script type="text/javascript" src="./javascript/jquery.ui.map.full.min.js"></script>
+
+    <script type="text/javascript">
+      //  $(function() {
+           
+//            $('#map_canvas').gmap({'center': '55.175633,-118.818855', 'zoom': 13, 'disableDefaultUI':true, 'callback': function() {
+//				var self = this;
+//				self.addMarker({'position': this.get('map').getCenter() });
+//			}});
+
+$('#locationMap').live('pageshow',function(){
+
+    $('#map_canvas').gmap({ 'center': new google.maps.LatLng(42.345573,-71.098326),
+                        'zoom':14, 'callback':function() {
+                            $('#map_canvas').gmap('addMarker',{'position':new google.maps.LatLng(42.345573,-71.098326)})
+                        } });
+        
+});
+
+      //  });
+	</script>
+</head>
+
+	
+<body> 
+
+
+<!-- Start of first page: #one -->
+<div data-role="page" data-theme="b" id="root">
+
+		<div id="jqm-homeheader">
+		<h1 id="jqm-logo"><img src="./images/logo.png" alt="GPRC Header" width="235" height="101" /></h1>
+		<p>Welcome to the GPRC Library mobile app. </p><p>Here you will find a condensed repository of information pertaining to the library and its many departments.</p>
+		<p id="jqm-version">Alpha Release</p>
+
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<li><a href="#about">About Library</a></li>
+			<li><a href="#hours">Hours</a></li>
+			<li><a href="location.html">Location</a></li>
+			<p></p>
+		</ul>	
+		</div>	
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
+		<div data-role="navbar" class="nav-custom" data-iconpos="top">
+			<ul>
+			    <li><a href="#root" id="about" data-icon="custom">About</a></li>
+			    <li><a href="#" id="news" data-icon="custom">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="custom">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="custom">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="custom">Links</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div>
+
+
+
+<!-- Start of first page: #one -->
+<div data-role="page" data-theme="b" id="about">
+	<div data-role="header" data-position="fixed">
+		<a href="#root" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<h1>About</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div style="min-height:355px; height:auto !important; height:355px; ">
+			<img alt="" style="padding-right:10px; padding-bottom:10px; vertical-align: top; float:left; " height="348" src="./images/Staircase.jpg" width="232" />
+			<p style="text-align: left;"><span style="white-space:nowrap">The GPRC Library</span> comprises three distinct service areas: Library Services, Educational Technologies, and the Learning Support Services. These areas are unique in their services within our department. Library Services is responsible for our library collection and strives to meet the research needs of our users. Educational Technologies offers means and support for electronic delivery of courses through Blackboard, videoconferencing, as well as support and instruction for student and faculty digital projects and presentations. The Learning Support Centre provides students with resources to help them with writing, documentation, oral presentation, resume building, life skills and more. Although each area works fairly independently, all the staff work together for the success of the department in meeting the current and future needs of the students, staff, and faculty of GPRC.</p>
+
+			<p style="text-align: left;">The library holds approximately 124,000 items. Our collection includes books, reference items, periodicals, newspapers, Statistics Canada publications, Government publications, Curriculum items, Juvenile collection, Special Collections (Test and Careers), Music, Audiovisual, Maps and Atlases, Easy Reading and Paperbacks. Our users have access to numerous online databases and a growing selection of electronic journals and ebooks.</p>
+		</div>
+
+		<div>
+		
+		</div>	
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
+		<div data-role="navbar" class="nav-custom" data-iconpos="top">
+			<ul>
+			    <li><a href="#root" id="about" data-icon="custom">About</a></li>
+			    <li><a href="#" id="news" data-icon="custom">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="custom">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="custom">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="custom">Links</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div>
+
+
+
+<!-- Start of first page: #one -->
+<div data-role="page" data-theme="b" id="hours">
+	<div data-role="header" data-position="fixed">
+		<a href="#root" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<h1>Hours</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<li data-role="list-divider" role="heading">Sept - April</li>
+			<li>
+				<p><strong>Monday - Thursday</strong></p>
+				<p>8:00-21:00</p>
+			</li>
+			<li>
+				<p><strong>Friday</strong></p>
+				<p>8:00-18:00</p>
+			</li>
+			<li>
+				<p><strong>Weekend</strong></p>
+				<p>12:00-18:00</p>
+			</li>
+			<p></p>
+		</ul>	
+		</div>
+		</br>
+		<div>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<li data-role="list-divider" role="heading">May - August</li>
+			<li>
+				<p><strong>Monday - Friday</strong></p>
+				<p>8:30-16:30</p>
+			</li>
+			<li>
+				<p><strong>Weekend</strong></p>
+				<p>Closed</p>
+			</li>
+			<p></p>
+		</ul>	
+		</div>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
+		<div data-role="navbar" class="nav-custom" data-iconpos="top">
+			<ul>
+			    <li><a href="#root" id="about" data-icon="custom">About</a></li>
+			    <li><a href="#" id="news" data-icon="custom">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="custom">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="custom">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="custom">Links</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div>
+
+
+
+
+<!-- Start of first page: #one -->
+<div data-role="page" data-theme="b" id="location">
+
+	<div data-role="header" data-position="fixed">
+		<a href="#root" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<h1>Location</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div id="map_canvas" style="width:100%;height:400px"></div>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
+		<div data-role="navbar" class="nav-custom" data-iconpos="top">
+			<ul>
+			    <li><a href="#root" id="about" data-icon="custom">About</a></li>
+			    <li><a href="#" id="news" data-icon="custom">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="custom">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="custom">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="custom">Links</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div>
+
+
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="twitter">
+
+	<div data-role="header" data-position="inline">
+		<a href="#" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<h1>Twitter</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<div id="twitList"></div>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
+		<div data-role="navbar" class="nav-custom" data-iconpos="top">
+			<ul>
+			    <li><a href="#root" id="about" data-icon="custom">About</a></li>
+			    <li><a href="#" id="news" data-icon="custom">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="custom">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="custom">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="custom">Links</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+
+
+<!-- Start of second page: #nottwo -->
+<div data-role="page" id="contact">
+
+	<div data-role="header" data-position="inline">
+		<a href="#" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<h1>Contact</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<li data-role="list-divider" role="heading">Phone</li>
+			<li>
+				<a href="tel:7805392939">780 539 2939 (local number)</a>
+			</li>
+			<li>
+				<a href="tel:18885394772">1 888 539 4772 ext 2939</a>
+			</li>
+		</ul>	
+		</div>
+		<div>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<li data-role="list-divider" role="heading">Email</li>
+			<li>
+				<a href="mailto:refdesk@gprc.ab.ca">Reference Desk</a>
+			</li>
+		</ul>	
+		</div>
+		<div>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<li data-role="list-divider" role="heading">Chat</li>
+			
+			<li>
+				No chat for you!
+			</li>
+			<p></p>
+		</ul>	
+		</div>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
+		<div data-role="navbar" class="nav-custom" data-iconpos="top">
+			<ul>
+			    <li><a href="#root" id="about" data-icon="custom">About</a></li>
+			    <li><a href="#" id="news" data-icon="custom">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="custom">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="custom">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="custom">Links</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page nottwo -->
+
+
+
+
+
+
+<!-- Start of second page: #nottwo -->
+<div data-role="page" id="links">
+
+	<div data-role="header" data-position="inline">
+		<a href="#" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<h1>About</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<p>These links will navigate you away from this mobile site</p>	
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+			<li><a href="http://moodle.gprc.ab.ca/">Moodle</a></li>
+			<li><a href="http://ualweb.library.ualberta.ca/uhtbin/cgisirsi/x/0/0/57/49?user_id=WGPRC">Search Neos</a></li>
+			<li><a href="http://ualweb.library.ualberta.ca/uhtbin/cgisirsi/x/0/0/29/1185/X/1/BLASTOFF">My Library Account</a></li>
+			<li><a href="http://ualweb.library.ualberta.ca/uhtbin/cgisirsi/x/0/0/57/36/1163/X?user_id=WGPRC">My Course Reserves</a></li>
+			<li><a href="http://h2.relais-host.com/agpc/loginp.jsp">Interlibrary Loans</a></li>
+		</ul>		
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
+		<div data-role="navbar" class="nav-custom" data-iconpos="top">
+			<ul>
+			    <li><a href="#root" id="about" data-icon="custom">About</a></li>
+			    <li><a href="#" id="news" data-icon="custom">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="custom">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="custom">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="custom">Links</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page nottwo -->
+
+
+</body>
+</html>
