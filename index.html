@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="./stylesheets/twitter.css">
 	<link rel="stylesheet" href="./stylesheets/googlemaps.css">
     <style>
+
+
 		.ui-content.ui-scrollview-clip {
 			padding: 0;
 		}
@@ -94,8 +96,8 @@
     <script type="text/javascript">
         function initialize() {
                 setupMap(55.176503, -118.819714, 13, true);
-                var quakeEventLatlng = new google.maps.LatLng(55.176503, -118.819714);
-                var marker = createQuakeEventMarker(quakeEventLatlng)
+                var latlng = new google.maps.LatLng(55.176503, -118.819714);
+                var marker = createMarker(latlng)
                 marker.setAnimation(google.maps.Animation.DROP)
             }
 
@@ -106,6 +108,7 @@
                 }
             });
 	</script>
+
 </head>
 
 	
@@ -193,16 +196,14 @@
 	<div data-role="content">
 		<div>
 		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
-			<li data-role="list-divider" role="heading">Sept - April</li>
+			<li data-role="list-divider" role="heading">September to April</li>
 			<li>
 				<p><strong>Monday - Thursday</strong></p>
 				<p>8:00-21:00</p>
-			</li>
-			<li>
+				</br>
 				<p><strong>Friday</strong></p>
 				<p>8:00-18:00</p>
-			</li>
-			<li>
+				</br>
 				<p><strong>Weekend</strong></p>
 				<p>12:00-18:00</p>
 			</li>
@@ -212,12 +213,11 @@
 		</br>
 		<div>
 		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
-			<li data-role="list-divider" role="heading">May - August</li>
+			<li data-role="list-divider" role="heading">May to August</li>
 			<li>
 				<p><strong>Monday - Friday</strong></p>
 				<p>8:30-16:30</p>
-			</li>
-			<li>
+				</br>
 				<p><strong>Weekend</strong></p>
 				<p>Closed</p>
 			</li>
@@ -250,8 +250,10 @@
 		<h1>Location</h1>
 	</div><!-- /header -->
 
-	<div data-role="content">
-		<div id="map_canvas" style="width:100%;height:500px"></div>
+	<div data-role="content" id="map_content">
+		<div id="map_content">
+			<div id="map_canvas"></div>
+		</div>
 	</div><!-- /content -->
 	
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
@@ -277,12 +279,8 @@
 		<h1>Twitter</h1>
 	</div><!-- /header -->
 
-	<div data-role="content">	
+	<div data-role="content" class="twitterDiv">	
 		<div id="twitList"></div>
-		<p></p>
-		<p></p>
-		<p></p>
-		<p></p>
 
 	</div><!-- /content -->
 	
@@ -334,7 +332,7 @@
 			<li data-role="list-divider" role="heading">Chat</li>
 			
 			<li>
-				No chat for you!
+				<a href="#chat">Ask Us Chat</a>
 			</li>
 			<p></p>
 		</ul>	
@@ -355,7 +353,42 @@
 </div><!-- /page nottwo -->
 
 
+<!-- Start of second page: #nottwo -->
+<div data-role="page" id="chat">
 
+	<div data-role="header" data-position="inline">
+		<a href="#" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<h1>Chat</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<!-- Place this div in your web page where you want your chat widget to appear. -->
+		<div class="needs-js">
+			JavaScript disabled or chat unavailable.
+		</div>
+		<!-- Place this script as near to the end of your BODY as possible. -->
+		<script type="text/javascript">
+		  	(function() {
+			    var x = document.createElement("script"); x.type = "text/javascript"; x.async = true;
+			    x.src = (document.location.protocol === "https:" ? "https://" : "http://") + "ca.libraryh3lp.com/js/libraryh3lp.js?21"
+			    var y = document.getElementsByTagName("script")[0]; y.parentNode.insertBefore(x, y);
+			})();
+		</script>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
+		<div data-role="navbar" class="nav-custom" data-iconpos="top">
+			<ul>
+			    <li><a href="#root" id="about" data-icon="custom">About</a></li>
+			    <li><a href="#" id="news" data-icon="custom">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="custom">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="custom">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="custom">Links</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page nottwo -->
 
 
 
@@ -364,7 +397,7 @@
 
 	<div data-role="header" data-position="inline">
 		<a href="#" data-direction="reverse" data-icon="arrow-l">Back</a>
-		<h1>About</h1>
+		<h1>Links</h1>
 	</div><!-- /header -->
 
 	<div data-role="content">

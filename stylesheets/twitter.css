@@ -1,4 +1,4 @@
-.x-anchor {
+#twitList .x-anchor {
 width:1.631em;
 height:.7em;
 position:absolute;
@@ -9,12 +9,12 @@ overflow:hidden;
 background-color:#081017;
 }
 
-.x-item-selected {
+#twitList .x-item-selected {
 	color:#FFF!important;
 }
 
 /*overriding all of Sencha Touch's gradient code*/
-.x-list .x-list-item.x-item-selected {
+#twitList .x-list .x-list-item.x-item-selected {
 	background-color:#FFF;
 	background-image: -webkit-gradient(linear, 100% 100%, 100% 100%, color-stop(0%, #FFF), color-stop(0%, #FFF), color-stop(100%, #FFF));
 	background-image:linear-gradient(#FFF,#FFF,#FFF);
@@ -24,11 +24,11 @@ background-color:#081017;
 	border-bottom-color:#FFF;
 }
 
-.listItem {
+#twitList .listItem {
 	border:none;
 }
 
-.listItem .x-list-item-body {
+#twitList .listItem .x-list-item-body {
 	display: -webkit-box;
 	display:box;
 	-webkit-box-orient:horizontal;
@@ -36,28 +36,28 @@ background-color:#081017;
 	overflow:hidden;
 }
 
-.listItem img {
+#twitList .listItem img {
 	width:60px;
 	height:60px;
 	background-color:#fff;
 	padding:2px;
 }
 
-.listItem .tweet-content {
+#twitList .listItem .tweet-content {
 	color:#444;
 	padding:15px;
 }
 
-.listItem .tweet-content a {
+#twitList .listItem .tweet-content a {
 	color:#2578C1;
 }
 
-.listItem .tweet-content h2 {
+#twitList .listItem .tweet-content h2 {
 	font-weight:700;
 	color:#111;
 }
 
-.listItem .x-tweetanchor {
+#twitList listItem .x-tweetanchor {
 	width:14px;
 	height:14px;
 	background-color:#eee;
@@ -67,7 +67,7 @@ background-color:#081017;
 	-webkit-transform:rotate(45deg);
 }
 
-.listItem .tweet-bubble {
+#twitList .listItem .tweet-bubble {
 	position:relative;
 	min-height:100px;
 	margin-left:15px;

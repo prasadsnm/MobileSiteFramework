@@ -4,8 +4,8 @@
 
 var map;
 
-function createQuakeEventMarker(quakeEventLatlng) {
-    return new google.maps.Marker({position: quakeEventLatlng, map: map});
+function createMarker(latlng) {
+    return new google.maps.Marker({position: latlng, map: map});
 }
 
 function setupMap(lat, lng, mapZoom, showOverviewControl) {
