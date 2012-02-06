@@ -78,3 +78,8 @@ background-color:#081017;
 	-webkit-box-flex:1;
 	box-flex:1;
 }
+
+/*** patch for jquerymobile page flicker ***/
+.ui-page {
+-webkit-backface-visibility: hidden;
+}
