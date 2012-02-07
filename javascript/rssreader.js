@@ -1,10 +1,16 @@
+$.ajaxSetup({
+	error:function(x,e,errorThrown) {
+		console.log(x.getStatusCode());
+		$("#status").prepend("Error!");		
+	}
+});
 
 
 //EDIT THESE LINES
 //Title of the blog
 var TITLE = "GPRC Library News";
 //RSS url
-var RSS = "http://feeds.feedburner.com/wordpress/faHJ";
+var RSS = "http://gprclibrarynews.wordpress.com/feed/";
 //Stores entries
 var entries = [];
 var selectedEntry = "";

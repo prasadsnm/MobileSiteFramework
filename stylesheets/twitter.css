@@ -81,5 +81,18 @@ background-color:#081017;
 
 /*** patch for jquerymobile page flicker ***/
 .ui-page {
--webkit-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+/*** patch for jquerymobile nowrap on list items ***/
+.ui-li-desc, .ui-li-heading{
+	white-space: normal;
+}
+
+.ui-li .ui-btn-text a.ui-link-inherit {
+	white-space: normal;
+}
+.ui-li-thumb {
+	margin-left: 20px;
+	margin-top:  20px;
 }

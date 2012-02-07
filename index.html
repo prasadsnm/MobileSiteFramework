@@ -14,7 +14,6 @@
     <style>
     	body{
     		height:100%;
-
     	}
 
 		.ui-content.ui-scrollview-clip {
@@ -73,6 +72,13 @@
 			background: url(./stylesheets/images/notepad.png) 50% 50% no-repeat;
 			background-size: 22px 28px;
 		}
+
+		iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none; padding-top: 41px; padding-bottom: 63px;
+            box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+        }
 		
 	</style>
 	<script src="./javascript/jquery-1.6.4.min.js"></script>
@@ -122,7 +128,7 @@
 <div data-role="page" data-theme="b" id="root">
 
 		<div id="jqm-homeheader">
-		<h1 id="jqm-logo"><img src="./images/logo.png" alt="GPRC Header" width="235" height="101" /></h1>
+		<h2 id="jqm-logo"><img src="./images/logo.png" alt="GPRC Header" width="235" height="101" /></h2>
 		<p>Welcome to the GPRC Library mobile app. </p><p>Here you will find a condensed repository of information pertaining to the library and its many departments.</p>
 		<p id="jqm-version">Alpha Release</p>
 
@@ -274,7 +280,7 @@
 
 
 <!-- Start of second page: #news -->
-<div data-role="page" id="news">
+<div data-role="page" data-theme="b" id="news">
 
 	<div data-role="header" data-position="inline">
 		<h1></h1>
