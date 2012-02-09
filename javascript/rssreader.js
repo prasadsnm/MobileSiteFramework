@@ -8,7 +8,7 @@ $.ajaxSetup({
 
 //EDIT THESE LINES
 //Title of the blog
-var TITLE = "GPRC Library News";
+var TITLE = "Library News";
 //RSS url
 var RSS = "http://gprclibrarynews.wordpress.com/feed/";
 //Stores entries
@@ -23,7 +23,7 @@ $(".contentLink").live("click", function() {
 function renderEntries(entries) {
     var s = '';
     $.each(entries, function(i, v) {
-        s += '<li><a href="#contentPage" class="contentLink" data-entryid="'+i+'">' + v.title + '</a></li>';
+        s += '<li><a href="#contentPage"  data-transition="fade" class="contentLink" data-entryid="'+i+'">' + v.title + '</a></li>';
     });
     $("#newsList").html(s);
     $("#newsList").listview("refresh");		
@@ -42,9 +42,9 @@ $("#news").live("pageinit", function() {
 			var items = xml.find("item");
 			$.each(items, function(i, v) {
 				entry = { 
-					title:$(v).find("title").text(), 
+					title:$(v).find("title:first").text(), 
 					link:$(v).find("link").text(), 
-					description:$.trim($(v).find("description").text())
+					description:$.trim($(v).find("encoded").text())
 				};
 				entries.push(entry);
 			});
@@ -68,7 +68,7 @@ $("#news").live("pageinit", function() {
 
 $("#news").live("pagebeforeshow", function(event,data) {
 	if(data.prevPage.length) {
-		$("h1", data.prevPage).text("");
+	//	$("h1", data.prevPage).text("");
 		$("#entryText", data.prevPage).html("");
 	};
 });
@@ -76,8 +76,9 @@ $("#news").live("pagebeforeshow", function(event,data) {
 //Listen for the content page to load
 $("#contentPage").live("pageshow", function(prepage) {
 	//Set the title
-	$("h1", this).text(entries[selectedEntry].title);
+	$("h1", this).text('Library News');
 	var contentHTML = "";
+	contentHTML += '<h2 style="text-align:center;">' + entries[selectedEntry].title + '</h2>';
 	contentHTML += entries[selectedEntry].description;
 	contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>';
 	$("#entryText",this).html(contentHTML);

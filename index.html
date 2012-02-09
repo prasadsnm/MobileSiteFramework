@@ -5,17 +5,16 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GPRC Assistant</title>
-	<link rel="stylesheet" href="./stylesheets/jquery.mobile-1.0.1.css" />
+	<link rel="stylesheet" href="./stylesheets/jquery.mobile.structure-1.0.1.min.css" />
 	<link rel="stylesheet" href="./stylesheets/jquery.mobile.scrollview.css">
 	<link rel="stylesheet" href="./stylesheets/jqm-docs.css">
-	<link rel="stylesheet" href="./stylesheets/gprc.min.css">
+	<link rel="stylesheet" href="./stylesheets/gprc.min.css"> <!--theme-->
 	<link rel="stylesheet" href="./stylesheets/twitter.css">
 	<link rel="stylesheet" href="./stylesheets/googlemaps.css">
     <style>
     	body{
     		height:100%;
     	}
-
 		.ui-content.ui-scrollview-clip {
 			padding: 0;
 		}
@@ -26,11 +25,10 @@
 		.ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
 			margin: 0;
 		}
-
-		.nav-custom .ui-btn .ui-btn-inner { 
+		.nav-custom .ui-btn .ui-btn-inner {
 			padding-top: 40px !important; 
 		}
-		.nav-custom .ui-btn .ui-icon { 
+		.nav-custom .ui-btn .ui-icon {
 			width: 30px!important; 
 			height: 30px!important; 
 			margin-left: -15px !important; 
@@ -40,21 +38,9 @@
 			-webkit-border-radius: none !important; 
 			border-radius: none !important; 
 		}
-		.ui-icon-moodle{
-			background: url(./stylesheets/images/gradhat.png) 50% 50% no-repeat;
-			background-size: 30px 23px;
-		}
-		.ui-icon-neos{
-			background: url(./stylesheets/images/book.png) 50% 50% no-repeat;
-			background-size: 18px 26px;
-		}
 		.ui-icon-twitter{
 			background: url(./stylesheets/images/bird.png) 50% 50% no-repeat;
 			background-size: 25px 24px;
-		}
-		.ui-icon-chat{
-			background: url(./stylesheets/images/chat.png) 50% 50% no-repeat;
-			background-size: 24px 22px;
 		}
 		.ui-icon-about{
 			background: url(./stylesheets/images/persondot.png) 50% 50% no-repeat;
@@ -72,7 +58,6 @@
 			background: url(./stylesheets/images/notepad.png) 50% 50% no-repeat;
 			background-size: 22px 28px;
 		}
-
 		iframe {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -81,8 +66,11 @@
         }
 		
 	</style>
+
+
 	<script src="./javascript/jquery-1.6.4.min.js"></script>
-	<script src="./javascript/jquery.mobile-1.0.1.js"></script>
+	<!--<script src="./javascript/custom-scripting.js"></script> -->
+	<script src="./javascript/jquery.mobile-1.0.1.min.js"></script>
 	<!--<script src="./javascript/jquery.mobile.iscroll.js"></script> -->
 <!--	<script src="./javascript/jquery.easing.1.3.js"></script>
 	<script src="./javascript/jquery.mobile.scrollview.js"></script>
@@ -91,6 +79,7 @@
 	<script src="./javascript/twitter.js"></script>
 	<script src="./javascript/rssreader.js"></script>
 	<script src="./javascript/jquery.linkify.1.0.0.min.js"></script>
+	<script src="./javascript/jquery.linkify-1.0-min.js"></script>
 	<script>
 		$.mobile.fixedToolbars
    		.setTouchToggleEnabled(false);
@@ -104,18 +93,18 @@
 
     <script type="text/javascript">
         function initialize() {
-                setupMap(55.176503, -118.819714, 13, true);
-                var latlng = new google.maps.LatLng(55.176503, -118.819714);
-                var marker = createMarker(latlng)
-                marker.setAnimation(google.maps.Animation.DROP)
-            }
+            setupMap(55.176503, -118.819714, 13, true);
+            var latlng = new google.maps.LatLng(55.176503, -118.819714);
+            var marker = createMarker(latlng)
+            marker.setAnimation(google.maps.Animation.DROP)
+        }
 
-            // Initialize the map when the jQuery Mobile pageshow event is triggered
-            $('.details-page').live("pageshow", function() {
-                if (map == null) {
-                    initialize();
-                }
-            });
+        // Initialize the map when the jQuery Mobile pageshow event is triggered
+        $('.details-page').live("pageshow", function() {
+            if (map == null) {
+                initialize();
+            }
+        });
 	</script>
 
 </head>
@@ -137,9 +126,9 @@
 	<div data-role="content">
 		<div>
 		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
-			<li><a href="#about">About Library</a></li>
-			<li><a href="#hours">Hours</a></li>
-			<li><a href="#location">Location</a></li>
+			<li><a href="#about" data-transition="none">About Library</a></li>
+			<li><a href="#hours" data-transition="none" data-transition="none">Hours</a></li>
+			<li><a href="#location" data-transition="none">Location</a></li>
 			<p></p>
 		</ul>	
 		</div>	
@@ -148,11 +137,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -163,7 +152,7 @@
 <!-- Start of first page: #about -->
 <div data-role="page" data-theme="b" id="about">
 	<div data-role="header" data-position="fixed">
-		<a href="#root" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<a href="#root" data-direction="reverse" data-icon="arrow-l" data-transition="none">Back</a>
 		<h1>About</h1>
 	</div><!-- /header -->
 
@@ -183,11 +172,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -198,7 +187,7 @@
 <!-- Start of first page: #hours -->
 <div data-role="page" data-theme="b" id="hours">
 	<div data-role="header" data-position="fixed">
-		<a href="#root" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<a href="#root" data-direction="reverse" data-icon="arrow-l" data-transition="none">Back</a>
 		<h1>Hours</h1>
 	</div><!-- /header -->
 
@@ -238,11 +227,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -255,7 +244,7 @@
 <div data-role="page" data-theme="b" id="location" class="details-page">
 
 	<div data-role="header" data-position="fixed">
-		<a href="#root" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<a href="#root" data-direction="reverse" data-icon="arrow-l" data-transition="none">Back</a>
 		<h1>Location</h1>
 	</div><!-- /header -->
 
@@ -268,11 +257,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -293,11 +282,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -313,17 +302,16 @@
 
 	<div data-role="content" class="twitterDiv">	
 		<div id="twitList"></div>
-
 	</div><!-- /content -->
 	
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -373,11 +361,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -388,7 +376,7 @@
 <div data-role="page" id="chat">
 
 		<div data-role="header" data-position="inline">
-			<a href="#contact" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<a href="#contact" data-direction="reverse" data-icon="arrow-l" data-transition="none">Back</a>
 			<h1>Chat</h1>
 		</div><!-- /header -->
 
@@ -411,11 +399,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -444,11 +432,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
@@ -462,7 +450,7 @@
 <div data-role="page" id="contentPage">
 
 	<div data-role="header" data-position="inline">
-		<a href="#news" data-direction="reverse" data-icon="arrow-l">Back</a>
+		<a href="#news" data-direction="reverse" data-icon="arrow-l" data-transition="none">Back</a>
 		<h1></h1>
 	</div><!-- /header -->
 
@@ -471,11 +459,11 @@
 	<div data-role="footer" data-position="fixed" data-id="pfooter" class="nav-custom">
 		<div data-role="navbar" class="nav-custom" data-iconpos="top">
 			<ul>
-			    <li><a href="#root" id="about" data-icon="about">About</a></li>
-			    <li><a href="#news" id="news" data-icon="news">News</a></li>
-			    <li><a href="#twitter" id="twitter" data-icon="twitter">Twitter</a></li>
-			    <li><a href="#contact" id="contact" data-icon="contact">Contact</a></li>
-			    <li><a href="#links" id="resources" data-icon="resources">Links</a></li>
+			    <li><a href="#root" id="about" data-icon="about" data-transition="none">About</a></li>
+			    <li><a href="#news" id="news" data-icon="news" data-transition="none">News</a></li>
+			    <li><a href="#twitter" id="twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+			    <li><a href="#contact" id="contact" data-icon="contact" data-transition="none">Contact</a></li>
+			    <li><a href="#links" id="resources" data-icon="resources" data-transition="none">Links</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->

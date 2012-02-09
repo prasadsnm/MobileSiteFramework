@@ -3,7 +3,7 @@ $(function(){
         url: "https://api.twitter.com/1/statuses/user_timeline.json?user_id=189311078",
         dataType: 'jsonp',
         success: function(json_results){
-            console.log(json_results);
+            //console.log(json_results);
             // Need to add UL on AJAX call or formatting of userlist is not displayed
             $('#twitList').append('<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>');
             listItems = $('#twitList').find('ul');
