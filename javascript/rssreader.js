@@ -43,7 +43,7 @@ $("#news").live("pageinit", function() {
 			$.each(items, function(i, v) {
 				entry = { 
 					title:$(v).find("title:first").text(), 
-					link:$(v).find("link").text(), 
+					//link:$(v).find("link").text(), 
 					description:$.trim($(v).find("encoded").text())
 				};
 				entries.push(entry);
@@ -80,7 +80,7 @@ $("#contentPage").live("pageshow", function(prepage) {
 	var contentHTML = "";
 	contentHTML += '<h2 style="text-align:center;">' + entries[selectedEntry].title + '</h2>';
 	contentHTML += entries[selectedEntry].description;
-	contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>';
+	//contentHTML += '<p/><a href="'+entries[selectedEntry].link + '" target="_blank">Read Entry on Site</a>';
 	$("#entryText",this).html(contentHTML);
 });
 	
